@@ -2,7 +2,8 @@
 include 'config.php';
 
 $username = $_SESSION['username'];
-$sql = "SELECT * FROM user_profile AS num WHERE username = :username";
+$sql = "SELECT * FROM user_profile  WHERE username = :username";
+
 $stmt1 = $connect->prepare($sql);
 $stmt1->bindValue(':username', $username);
 
@@ -10,7 +11,7 @@ $stmt1->bindValue(':username', $username);
 
 $row = $stmt1->fetch(PDO::FETCH_ASSOC);
 
-if($row['num'] > 0 ) {
+if($row['username'] > 0 ) {
 
 
     foreach ($connect->query($sql) as $row);

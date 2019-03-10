@@ -13,7 +13,7 @@ $stmt1->execute();
 
 $row = $stmt1->fetch(PDO::FETCH_ASSOC);
 
-if($row['num'] > 0 ) {
+if($row['username'] > 0 ) {
 
 
     foreach ($connect->query($sql) as $row);
