@@ -1,10 +1,22 @@
 <?php
 include 'config.php';
 
-$sql = 'SELECT * FROM user_profile WHERE username=username';
-foreach ($connect->query($sql) as $row)
- ?>
-   <!DOCTYPE html>
+$username = $_SESSION['username'];
+$sql = "SELECT * FROM user_profile AS num WHERE username = :username";
+$stmt1 = $connect->prepare($sql);
+$stmt1->bindValue(':username', $username);
+
+    $stmt1->execute();
+
+$row = $stmt1->fetch(PDO::FETCH_ASSOC);
+
+if($row['num'] > 0 ) {
+
+
+    foreach ($connect->query($sql) as $row);
+    }
+?>
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
 
@@ -52,38 +64,24 @@ foreach ($connect->query($sql) as $row)
             <fieldset>
 
 
-            <form style="text-align: left; " class="signup-form" action="generateQR.php" method="post"  ">
-
+                <form style="text-align: left; " class="signup-form" action="generateQR.php" method="post"  ">
                 <p style="border-style: groove ; text-transform: uppercase"><strong ><em> <font size="4.5"; color="teal">  Name: </font></em> </strong><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></p>
-
                 <p style="border-style: groove ;text-transform: uppercase"><strong ><em> <font size="4.5"; color="teal">  Email: </font></em> </strong> <?php echo $row['email']; ?></p>
-
                 <p style="border-style: groove ;text-transform: uppercase"><strong ><em> <font size="4.5"; color="teal">  Username: </font></em> </strong> <?php echo $row['username']; ?></p>
-
                 <p style="border-style: groove ;text-transform: uppercase"><strong ><em> <font size="4.5"; color="teal">  Job Tilte: </font></em> </strong> <?php echo $row['jobtitle']; ?></p>
-
                 <p style="border-style: groove ;text-transform: uppercase"><strong ><em> <font size="4.5"; color="teal">  Company: </font></em> </strong> <?php echo $row['company']; ?></p>
-
                 <p style="border-style: groove ;text-transform: uppercase"><strong ><em> <font size="4.5"; color="teal">  Job Description: </font></em> </strong> <?php echo $row['job_desc']; ?></p>
-
                 <p style="border-style: groove ;text-transform: uppercase"><strong ><em> <font size="4.5"; color="teal">  Telephone: </font></em> </strong> <?php echo $row['telephone']; ?></p>
-
                 <p style="border-style: groove ;text-transform: uppercase"><strong ><em> <font size="4.5"; color="teal">  Linkedin: </font></em> </strong> <?php echo $row['linkedin']; ?></p>
-
                 <p style="border-style: groove ;text-transform: uppercase"><strong ><em> <font size="4.5"; color="teal">  Twitter: </font></em> </strong> <?php echo $row['twitter']; ?></p>
-
                 <p style="border-style: groove ;text-transform: uppercase"><strong ><em> <font size="4.5"; color="teal">  Instagram: </font></em> </strong> <?php echo $row['instagram']; ?></p>
-
                 <p style="border-style: groove ;text-transform: uppercase"><strong ><em> <font size="4.5"; color="teal">  Facebook: </font></em> </strong> <?php echo $row['facebook']; ?></p>
-
-
                 <button type="submit">Generate Card </button>
-
-            </form>
-        </fieldset>
-        </div>
+                </form>
+            </fieldset>
     </div>
-    </section>
+</div>
+</section>
 </div>
 <!---Footer start--->
 <div class="container-fluid text-center">
@@ -92,23 +90,18 @@ foreach ($connect->query($sql) as $row)
             <section class="col-md-2">
                 <a href="#"><h6>Meet the team</h6></a>
             </section>
-
             <section class="col-md-2">
                 <a href="#"><h6>Privacy</h6></a>
             </section>
-
             <section class="col-md-2">
                 <a href="#"><h6>Sitemap</h6></a>
             </section>
-
             <section class="col-md-2">
                 <a href="#"><h6>Complaints</h6></a>
             </section>
-
             <section class="col-md-2">
                 <a href="#"><h6>User Policy</h6></a>
             </section>
-
             <section class="col-md-2">
                 <address>
                     <a href="mailto:groupe_cmm004@live.rgu.ac.uk"><h6>Contact Information</h6></a>
@@ -127,7 +120,6 @@ foreach ($connect->query($sql) as $row)
                             <img src="assets/Images/twitter.png" class="img-thumbnail img-responsive" width="30px" height="20px"></a>
                         <a href="#">
                             <img src="assets/Images/github.png" class="img-thumbnail img-responsive" width="30px" height="20px"></a>
-
                     </center> </h6>
             </address>
         </div>
@@ -136,5 +128,3 @@ foreach ($connect->query($sql) as $row)
 <!---Footer end--->
 </body>
 </html>
-
-

@@ -7,6 +7,7 @@ define('dbuser', 'root');
 define('dbpass', '');
 define('dbname', 'db_group_e_cm004');
 
+
 // Connecting database
 try {
     $connect = new PDO("mysql:host=".dbhost."; dbname=".dbname, dbuser, dbpass);

@@ -1,12 +1,24 @@
 <?php
 // include QR_BarCode class
-
 include "QR_BarCode.php";
 
 //// Selecting from Database
 include_once 'config.php';
-$sql = 'SELECT * FROM user_profile WHERE username=username';
-foreach ($connect->query($sql) as $row)
+$username = $_SESSION['username']; ///Verifying the logged in user
+$sql = "SELECT * FROM user_profile  WHERE username = :username";
+$stmt1 = $connect->prepare($sql);
+$stmt1->bindValue(':username', $username);
+
+$stmt1->execute();
+
+$row = $stmt1->fetch(PDO::FETCH_ASSOC);
+
+if($row['num'] > 0 ) {
+
+
+    foreach ($connect->query($sql) as $row);
+}
+
 
     if(isset($errMsg)){
         echo '<div style="color:green;text-align:center;font-size:17px;">'.$errMsg.'</div>';

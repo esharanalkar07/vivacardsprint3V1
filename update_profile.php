@@ -1,9 +1,10 @@
 <?php
 require 'config.php';
-if(empty($_SESSION['firstname']))
-    header('Location: login.php');
 
-if(isset($_POST['update'])) {
+if (isset($_SESSION['username']))
+{
+
+    if(isset($_POST['update'])) {
     $errMsg = '';
 
     // Get data from the parameters below
@@ -32,7 +33,7 @@ if(isset($_POST['update'])) {
                 ':lastname' => $lastname,
                 ':email' => $email,
                 ':username' => $_SESSION['username'],
-               /* ':password' => $password,*/
+                /* ':password' => $password,*/
                 ':jobtitle' => $jobtitle,
                 ':company' => $company,
                 ':job_desc' => $job_desc,
@@ -43,17 +44,15 @@ if(isset($_POST['update'])) {
                 ':facebook' => $facebook,
 
             ));
-           header('Location: update_profile1.php?action=updated');
-         //  exit;
+            header('Location: update_profile1.php?action=updated');
+            //  exit;
 
-           /// add a refresh code here so that new changes are displayed on the same page
-        }
-
-        catch(PDOException $e) {
+            /// add a refresh code here so that new changes are displayed on the same page
+        } catch (PDOException $e) {
             $errMsg = $e->getMessage();
         }
 
-
+    }
     }
 }
 
