@@ -62,5 +62,5 @@ $qr->qrCode();
 /// Should save a new image for new user >>>> need to check later
 $qr->qrCode(500,'img/cw-qr.png');
 
-header('Location: viewcard.php');
+header('Location: downloadQR.php');
 ?>

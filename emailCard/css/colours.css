@@ -1,0 +1,25 @@
+
+body{
+    backgroung-color: whitesmoke;
+}
+main {
+    background-color: whitesmoke;
+}
+mini{
+    background-color: darkgray;
+}
+nav{
+    background-color: gray;
+}
+main{
+    background-color: bisque;
+}
+article{
+    background-color: bisque;
+}
+section{
+    background-color: gainsboro;
+}
+footer{
+    background-color: darkgray;
+}

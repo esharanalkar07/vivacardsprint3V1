@@ -137,10 +137,10 @@ if (isset($_SESSION['username']))
                 <input type="url" name="instagram" value="<?php echo $_SESSION['instagram']; ?>" autocomplete="off" class="box"/><br /><br />
                 Facebook <br>
                 <input type="url" name="facebook" value="<?php echo $_SESSION['facebook']; ?>"  autocomplete="off" class="box"/><br /><br />
-
-
-                <input type="submit" name='update' value="Update" class='submit'/><br />
+                <br />
+                <input  type="submit" name='update' value="Update" class='submit'/>
             </form>
+
         </fieldset>
         </div>
     </div>

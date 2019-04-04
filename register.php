@@ -51,10 +51,8 @@ if(isset($_POST['register'])) {
 
         if($row['num'] > 0) {
 
-             die('Username Already Exists !!!');
-
+            die('Username Already Exists !!!');
              }
-
         }
 
 
